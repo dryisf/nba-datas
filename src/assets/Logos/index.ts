@@ -16,6 +16,7 @@ import MEM from "./images/mem";
 import MIA from "./images/mia";
 import MIL from "./images/mil";
 import MIN from "./images/min";
+import NBA from "./images/nba";
 import NOP from "./images/nop";
 import NYK from "./images/nyk";
 import OKC from "./images/okc";
@@ -66,5 +67,7 @@ const teamLogos: TeamLogos = {
   UTA,
   WAS,
 };
+
+export { NBA as LogoPlaceholder };
 
 export default teamLogos;
