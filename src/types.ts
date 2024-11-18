@@ -1,4 +1,5 @@
 export interface Team {
+  [key: string]: string | number;
   id: number;
   abbreviation: string;
   city: string;
