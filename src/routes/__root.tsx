@@ -1,17 +1,18 @@
-import Home from "@/components/Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
 const queryClient = new QueryClient();
-function App() {
-  return (
+
+export const Route = createRootRoute({
+  component: () => (
     <QueryClientProvider client={queryClient}>
       <div className="m-8">
-        <Home />
+        <Outlet />
       </div>
+      <TanStackRouterDevtools />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  );
-}
-
-export default App;
+  ),
+});
