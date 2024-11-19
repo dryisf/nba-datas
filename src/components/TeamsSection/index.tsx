@@ -1,10 +1,13 @@
-import useGetTeams from "@/hooks/useGetTeams";
+import { Team } from "@/types";
 import ConferenceSection from "./ConferenceSection";
 import { groupTeamsByConference } from "./utils";
 
-function TeamsSection() {
-  const { teams, areTeamsLoading } = useGetTeams(true);
+type Props = {
+  teams: Team[];
+  areTeamsLoading: boolean;
+};
 
+function TeamsSection({ teams, areTeamsLoading }: Props) {
   const groupedTeamsByConference = groupTeamsByConference(teams);
 
   return (
