@@ -20,7 +20,7 @@ function DivisionSection({ divisionName, teams }: Props) {
               key={team.id}
               to={ROUTE_TEAM_ID.replace(/\$teamId/, `${team.id}`)}
             >
-              <Card>
+              <Card className="hover:bg-slate-200">
                 <CardContent className="flex flex-col gap-2 items-center p-4">
                   <TeamLogo size={200} teamAbbreviation={team.abbreviation} />
                   <p>{team.full_name}</p>
