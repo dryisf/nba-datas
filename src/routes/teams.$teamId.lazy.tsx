@@ -1,4 +1,4 @@
-import PlayersSection from "@/assets/PlayersSection";
+import PlayersSection from "@/components/PlayersSection";
 import TeamLogo from "@/components/TeamLogo";
 import useGetTeamPlayers from "@/hooks/useGetTeamPlayers";
 import { ROUTE_TEAM_ID } from "@/routesPaths";
