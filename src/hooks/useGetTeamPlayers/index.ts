@@ -1,7 +1,8 @@
 import { getTeamPlayers } from "@/api/players";
 import { useQuery } from "@tanstack/react-query";
+import { parsePlayers } from "./utils";
 
-const useGetTeamPlayers = (teamId: number, enabled: boolean) => {
+const useGetTeamPlayers = (teamId: string, enabled: boolean) => {
   const { data: players = [], isLoading: arePlayersLoading } = useQuery({
     queryFn: () => getTeamPlayers(teamId),
     queryKey: ["teamPlayers", teamId],
@@ -9,7 +10,7 @@ const useGetTeamPlayers = (teamId: number, enabled: boolean) => {
   });
 
   return {
-    players,
+    players: parsePlayers(players),
     arePlayersLoading,
   };
 };

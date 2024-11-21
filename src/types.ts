@@ -1,5 +1,4 @@
-export interface Team {
-  [key: string]: string | number;
+export interface TeamAPIPayload {
   id: number;
   abbreviation: string;
   city: string;
@@ -9,7 +8,7 @@ export interface Team {
   name: string;
 }
 
-export interface Player {
+export interface PlayerAPIPayload {
   id: number;
   first_name: string;
   last_name: string;
@@ -22,5 +21,31 @@ export interface Player {
   draft_year: number;
   draft_round: number;
   draft_number: number;
+  team: TeamAPIPayload;
+}
+
+export interface Team {
+  id: string;
+  abbreviation: string;
+  city: string;
+  conference: string;
+  division: string;
+  fullName: string;
+  name: string;
+}
+
+export interface Player {
+  id: string;
+  firstName: string;
+  lastName: string;
+  position: string;
+  height: string;
+  weight: string;
+  jerseyNumber: string;
+  college: string;
+  country: string;
+  draftYear: number;
+  draftRound: number;
+  draftNumber: number;
   team: Team;
 }

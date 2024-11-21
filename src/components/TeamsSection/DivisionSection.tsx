@@ -23,7 +23,7 @@ function DivisionSection({ divisionName, teams }: Props) {
               <Card className="hover:bg-slate-200">
                 <CardContent className="flex flex-col gap-2 items-center p-4">
                   <TeamLogo size={200} teamAbbreviation={team.abbreviation} />
-                  <p>{team.full_name}</p>
+                  <p>{team.fullName}</p>
                 </CardContent>
               </Card>
             </Link>

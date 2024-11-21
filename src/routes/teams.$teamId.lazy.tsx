@@ -12,7 +12,7 @@ function Team() {
   const { teamId } = Route.useParams();
 
   const { players, arePlayersLoading } = useGetTeamPlayers(
-    parseInt(teamId),
+    teamId,
     Boolean(teamId)
   );
 
@@ -24,7 +24,7 @@ function Team() {
     <div className="flex flex-col items-center gap-8">
       <div className="flex flex-col items-center">
         <TeamLogo size={200} teamAbbreviation={team.abbreviation} />
-        <p className="text-3xl font-semibold">{team.full_name}</p>
+        <p className="text-3xl font-semibold">{team.fullName}</p>
       </div>
       <PlayersSection players={players} />
     </div>

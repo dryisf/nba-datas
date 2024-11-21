@@ -18,7 +18,7 @@ function PlayersSection({ players }: Props) {
           >
             <Card className="hover:bg-slate-200">
               <CardContent className="flex justify-center p-4">
-                <p>{`${player.first_name} ${player.last_name}`}</p>
+                <p>{`${player.firstName} ${player.lastName}`}</p>
               </CardContent>
             </Card>
           </Link>

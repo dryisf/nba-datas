@@ -1,6 +1,6 @@
 import { getTeams } from "@/api/teams";
 import { useQuery } from "@tanstack/react-query";
-import { filterInactiveTeams } from "./filters";
+import { filterInactiveTeams, parseTeams } from "./utils";
 
 const useGetTeams = (enabled: boolean) => {
   const { data: teams = [], isLoading: areTeamsLoading } = useQuery({
@@ -10,7 +10,7 @@ const useGetTeams = (enabled: boolean) => {
   });
 
   return {
-    teams: filterInactiveTeams(teams),
+    teams: filterInactiveTeams(parseTeams(teams)),
     areTeamsLoading,
   };
 };
