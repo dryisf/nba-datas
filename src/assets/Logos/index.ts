@@ -29,11 +29,7 @@ import SAS from "./images/sas";
 import TOR from "./images/tor";
 import UTA from "./images/uta";
 import WAS from "./images/was";
-import { Props } from "./types";
-
-type TeamLogos = {
-  [key: string]: (props: Props) => JSX.Element;
-};
+import { TeamLogos } from "./types";
 
 const teamLogos: TeamLogos = {
   ATL,
