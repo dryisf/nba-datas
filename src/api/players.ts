@@ -7,3 +7,10 @@ export const getTeamPlayers: (
   const response = await fetchApi("/players/active", { team_ids: [teamId] });
   return response.data;
 };
+
+export const getPlayerById: (
+  playerId: string
+) => Promise<PlayerAPIPayload> = async playerId => {
+  const response = await fetchApi(`/players/${playerId}`);
+  return response.data;
+};

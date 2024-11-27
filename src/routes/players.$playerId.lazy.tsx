@@ -1,3 +1,4 @@
+import useGetPlayer from "@/hooks/useGetPlayer";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/players/$playerId")({
@@ -7,5 +8,15 @@ export const Route = createLazyFileRoute("/players/$playerId")({
 function Player() {
   const { playerId } = Route.useParams();
 
-  return "Hello, you're on the page of the player which ID is: " + playerId;
+  const { player, isPlayerLoading } = useGetPlayer(playerId, Boolean(playerId));
+
+  if (isPlayerLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!player) {
+    return <div>Erreur lors de la récupération des informations du joueur</div>;
+  }
+
+  return <div>{`${player?.firstName} ${player?.lastName}`}</div>;
 }
