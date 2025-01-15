@@ -9,13 +9,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex px-8 py-4">
-      <div className="flex-1">
+    <nav className="flex gap-8 px-8 py-4 flex-wrap">
+      <div className="flex-1 flex justify-center sm:justify-start">
         <Link href={ROUTE_HOME} className="flex w-[48]">
           <NBALogo size={48} />
         </Link>
       </div>
-      <ul className="flex gap-8 justify-center items-center">
+      <ul className="flex gap-8 justify-center items-center flex-wrap">
         {navigationRoutes.map(route => (
           <li key={route.path}>
             <Link href={route.path}>
