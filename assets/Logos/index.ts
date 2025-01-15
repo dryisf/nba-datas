@@ -64,6 +64,6 @@ const teamLogos: TeamLogos = {
   WAS,
 };
 
-export { NBA as LogoPlaceholder };
+export { NBA as NBALogo };
 
 export default teamLogos;
