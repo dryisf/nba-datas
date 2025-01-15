@@ -3,7 +3,12 @@ import {
   PlayerSeasonAveragesAPIPayload,
   TeamAPIPayload,
 } from "@/types";
-import { parsePlayer, parsePlayers } from "./players";
+import {
+  filterInactivePlayers,
+  parsePlayer,
+  parsePlayers,
+  sortPlayersAlphabeticallyByLastName,
+} from "./players";
 import { parsePlayerSeasonAverages } from "./season-averages";
 import { filterInactiveTeams, parseTeams } from "./teams";
 
@@ -27,7 +32,9 @@ export const getTeamPlayers = async (teamId: string) => {
   if (response.ok) {
     const players: PlayerAPIPayload[] = await response.json();
 
-    return parsePlayers(players);
+    return sortPlayersAlphabeticallyByLastName(
+      filterInactivePlayers(parsePlayers(players))
+    );
   }
 };
 

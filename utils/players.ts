@@ -26,3 +26,9 @@ export const parsePlayer: (player: PlayerAPIPayload) => Player = ({
 export const parsePlayers: (players: PlayerAPIPayload[]) => Player[] = (
   players: PlayerAPIPayload[]
 ) => players.map(parsePlayer);
+
+export const sortPlayersAlphabeticallyByLastName = (players: Player[]) =>
+  players.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+export const filterInactivePlayers = (players: Player[]) =>
+  players.filter(player => Boolean(player.jerseyNumber));
