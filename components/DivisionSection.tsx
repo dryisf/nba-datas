@@ -18,11 +18,14 @@ function DivisionSection({ divisionName, teams }: Props) {
             <Link
               key={team.id}
               href={ROUTE_TEAM_ID.replace(/\:id/, `${team.id}`)}
+              className="group"
             >
-              <div className="hover:bg-slate-200">
+              <div className="group-hover:bg-slate-200 border-slate-500 rounded-lg border">
                 <div className="flex flex-col gap-2 items-center p-4">
                   <TeamLogo size={200} teamAbbreviation={team.abbreviation} />
-                  <p>{team.fullName}</p>
+                  <p className="font-semibold group-hover:text-slate-500">
+                    {team.fullName}
+                  </p>
                 </div>
               </div>
             </Link>
