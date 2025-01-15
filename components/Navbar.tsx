@@ -2,6 +2,7 @@
 
 import { NBALogo } from "@/assets/Logos";
 import { navigationRoutes, ROUTE_HOME } from "@/routes";
+import { isActiveLink } from "@/utils/links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -21,7 +22,9 @@ export default function Navbar() {
             <Link href={route.path}>
               <span
                 className={`text-xs font-semibold uppercase ${
-                  pathname === route.path ? "text-slate-500" : "text-black"
+                  isActiveLink(pathname, route.path)
+                    ? "text-slate-500"
+                    : "text-black"
                 } hover:text-slate-500`}
               >
                 {route.label}
