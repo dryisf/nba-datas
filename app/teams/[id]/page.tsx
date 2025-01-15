@@ -25,10 +25,12 @@ export default async function TeamPage({
             <Link
               key={player.id}
               href={ROUTE_PLAYER_ID.replace(/\:id/, `${player.id}`)}
+              className="group"
             >
-              <div className="hover:bg-slate-200">
-                <div className="flex justify-center p-4">
-                  <p>{`${player.firstName} ${player.lastName}`}</p>
+              <div className="group-hover:bg-slate-200 border-slate-500 rounded-lg border">
+                <div className="p-4">
+                  <p className="font-semibold group-hover:text-slate-500">{`${player.firstName} ${player.lastName}`}</p>
+                  <p className="font-semibold text-center text-slate-500">{`#${player.jerseyNumber}`}</p>
                 </div>
               </div>
             </Link>
