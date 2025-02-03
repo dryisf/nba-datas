@@ -2,6 +2,7 @@ import {
   PlayerAPIPayload,
   PlayerSeasonAveragesAPIPayload,
   TeamAPIPayload,
+  User,
 } from "@/types";
 import {
   filterInactivePlayers,
@@ -60,5 +61,31 @@ export const getPlayerSeasonAverages = async (playerId: string) => {
       await response.json();
 
     return parsePlayerSeasonAverages(playerSeasonAverages);
+  }
+};
+
+export const addToFavorite = async (
+  entityId: string,
+  type: "team" | "player"
+) => {
+  const response = await fetch(
+    new Request(createURL(`/api/user/favorite`), {
+      method: "PATCH",
+      body: JSON.stringify({ [type]: entityId }),
+    })
+  );
+
+  if (response.ok) {
+    const updatedUser = await response.json();
+
+    return updatedUser;
+  }
+};
+
+export const getUser: () => Promise<User> = async () => {
+  const response = await fetch(new Request(createURL(`/api/user/me`)));
+
+  if (response.ok) {
+    return await response.json();
   }
 };

@@ -20,7 +20,7 @@ export const GET = async (
       season: 2024,
     });
 
-    if (!response.data) {
+    if (!response.data || !response.data[0]) {
       return NextResponse.json(
         { error: "No data returned from the season averages API" },
         { status: 500 }

@@ -1,3 +1,4 @@
+import AddFavoriteButton from "@/components/AddFavoriteButton";
 import TeamLogo from "@/components/TeamLogo";
 import { ROUTE_PLAYER_ID } from "@/routes";
 import { getTeamPlayers } from "@/utils/api";
@@ -15,6 +16,9 @@ export default async function TeamPage({
 
   return (
     <div className="flex flex-col items-center gap-8">
+      <div className="flex justify-start w-full">
+        <AddFavoriteButton teamId={team.id} />
+      </div>
       <div className="flex flex-col items-center">
         <TeamLogo size={200} teamAbbreviation={team.abbreviation} />
         <p className="text-3xl font-semibold">{team.fullName}</p>

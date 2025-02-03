@@ -4,8 +4,10 @@ export const ROUTE_PLAYERS = "/players";
 export const ROUTE_STANDINGS = "/standings";
 export const ROUTE_TEAM_ID = "/teams/:id";
 export const ROUTE_PLAYER_ID = "/players/:id";
+export const ROUTE_SIGN_IN = "/signin";
+export const ROUTE_ACCOUNT = "/account";
 
-export const navigationRoutes = [
+export const getNavigationRoutes = (isLoggedIn: boolean = false) => [
   {
     path: ROUTE_HOME,
     label: "Home",
@@ -22,4 +24,5 @@ export const navigationRoutes = [
     path: ROUTE_STANDINGS,
     label: "Standings",
   },
+  ...(isLoggedIn ? [] : [{ path: ROUTE_SIGN_IN, label: "Sign In" }]),
 ];

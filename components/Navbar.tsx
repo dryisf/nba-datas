@@ -1,12 +1,14 @@
 "use client";
 
 import { NBALogo } from "@/assets/Logos";
-import { navigationRoutes, ROUTE_HOME } from "@/routes";
+import { getNavigationRoutes, ROUTE_ACCOUNT, ROUTE_HOME } from "@/routes";
 import { isActiveLink } from "@/utils/links";
+import { User } from "next-auth";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Navbar() {
+export default function Navbar({ user }: { user: User | undefined }) {
   const pathname = usePathname();
 
   return (
@@ -17,7 +19,7 @@ export default function Navbar() {
         </Link>
       </div>
       <ul className="flex gap-8 justify-center items-center flex-wrap">
-        {navigationRoutes.map(route => (
+        {getNavigationRoutes(Boolean(user)).map(route => (
           <li key={route.path}>
             <Link href={route.path}>
               <span
@@ -33,7 +35,19 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
-      <div className="flex-1"></div>
+      <div className="flex-1 flex items-center justify-center sm:justify-end">
+        {user && (
+          <Link href={ROUTE_ACCOUNT}>
+            <Image
+              className="rounded-full"
+              src={user.image || ""}
+              alt={user.name || ""}
+              width={32}
+              height={32}
+            />
+          </Link>
+        )}
+      </div>
     </nav>
   );
 }

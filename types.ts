@@ -99,3 +99,15 @@ export interface PlayerSeasonAverages {
   playerId: string; // Player's unique identifier
   season: number; // Year of the season
 }
+
+export interface User {
+  id: string;
+  image: string | null;
+  favoriteTeams: string[];
+  favoritePlayers: string[];
+  name: string | null;
+  email: string;
+  emailVerified: Date | null;
+  createdAt: Date;
+  updatedAt: Date;
+}

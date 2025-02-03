@@ -1,3 +1,4 @@
+import AddFavoriteButton from "@/components/AddFavoriteButton";
 import { getPlayerById, getPlayerSeasonAverages } from "@/utils/api";
 
 export default async function PlayerPage({
@@ -16,6 +17,7 @@ export default async function PlayerPage({
 
   return (
     <div>
+      <AddFavoriteButton playerId={player.id} />
       <div>{`${player?.firstName} ${player?.lastName}`}</div>
       {seasonAverages && (
         <div>
